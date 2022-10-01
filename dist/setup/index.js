@@ -10192,8 +10192,10 @@ function _findMatch(versionSpec, stable, candidates, archFilter) {
                 file = candidate.files.find(item => {
                     core_1.debug(`${item.arch}===${archFilter} && ${item.platform}===${platFilter}`);
                     let chk = item.arch === archFilter && item.platform === platFilter;
+                    console.log(chk)
                     if (chk && item.platform_version) {
                         const osVersion = module.exports._getOsVersion();
+                        console.log(osVersion)
                         if (osVersion === item.platform_version) {
                             chk = true;
                         }
