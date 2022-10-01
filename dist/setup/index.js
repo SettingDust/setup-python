@@ -10224,7 +10224,6 @@ function _getOsVersion() {
     // right now filtering on version is only an ubuntu and macos scenario for tools we build for hosted (python)
     const plat = os.platform();
     let version = '';
-    console.log(plat)
     if (plat === 'darwin') {
         version = cp.execSync('sw_vers -productVersion').toString();
     }
@@ -10256,6 +10255,7 @@ function _readLinuxVersionFile() {
     if (fs.existsSync(lsbFile)) {
         contents = fs.readFileSync(lsbFile).toString();
     }
+    core_1.debug(contents);
     return contents;
 }
 exports._readLinuxVersionFile = _readLinuxVersionFile;
