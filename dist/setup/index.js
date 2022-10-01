@@ -10192,10 +10192,8 @@ function _findMatch(versionSpec, stable, candidates, archFilter) {
                 file = candidate.files.find(item => {
                     core_1.debug(`${item.arch}===${archFilter} && ${item.platform}===${platFilter}`);
                     let chk = item.arch === archFilter && item.platform === platFilter;
-                    console.log(chk)
                     if (chk && item.platform_version) {
                         const osVersion = module.exports._getOsVersion();
-                        console.log(osVersion)
                         if (osVersion === item.platform_version) {
                             chk = true;
                         }
@@ -10226,6 +10224,7 @@ function _getOsVersion() {
     // right now filtering on version is only an ubuntu and macos scenario for tools we build for hosted (python)
     const plat = os.platform();
     let version = '';
+    console.log(plat)
     if (plat === 'darwin') {
         version = cp.execSync('sw_vers -productVersion').toString();
     }
